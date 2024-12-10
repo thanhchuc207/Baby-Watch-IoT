@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Các màu cơ bản -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Các màu nền cho dark mode và light mode -->
+    <color name="background">#F7F7F7</color>
+    <color name="background_dark">#121212</color>
+
+    <!-- Màu primary -->
+    <color name="primary">#FF7A8F</color>
+    <color name="material_primary" type="material">#FF7A8F</color>
+
+    <!-- Màu secondary -->
+    <color name="secondary">#F2455B</color>
+    <color name="material_secondary" type="material">#F2455B</color>
+
+    <!-- Màu neutral -->
+    <color name="neutral">#425361</color>
+    <color name="material_neutral" type="material">#425361</color>
+</resources>

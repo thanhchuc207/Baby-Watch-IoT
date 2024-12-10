@@ -1,0 +1,38 @@
+python .\create_file_in_bloc.py "../../presentation" "Sign In Screen"
+
+mkdir "lib/common/constants"
+mkdir "lib/common/enums"
+mkdir "lib/common/extensions"
+mkdir "lib/common/services"
+
+mkdir "lib/core/language"
+mkdir "lib/core/locators/di"
+mkdir "lib/core/routering"
+mkdir "lib/core/styles"
+mkdir "lib/core/utils"
+
+mkdir "lib/data/exceptions"
+mkdir "lib/data/model"
+mkdir "lib/data/local"
+mkdir "lib/data/remote"
+
+mkdir "lib/domain/models"
+mkdir "lib/domain/request_models"
+mkdir "lib/domain/repositories"
+mkdir "lib/domain/usecases"
+mkdir "lib/domain/serviceables"
+
+mkdir "lib/presentation"
+mkdir "lib/shared"
+
+mkdir "assets/images"
+mkdir "assets/videos"
+mkdir "assets/icons"
+mkdir "assets/audios"
+
+mkdir "l10n"
+
+
+cd lib
+New-Item app.dart -ItemType File
+New-Item initializer.dart -ItemType File
