@@ -14,7 +14,6 @@ class MainScreen extends StatelessWidget {
         routes: const [
           HomeRoute(),
           MediaRoute(),
-          ProfileRoute(),
         ],
         bottomNavigationBuilder: (_, tabsRouter) {
           return BottomNavigationBar(
@@ -30,10 +29,6 @@ class MainScreen extends StatelessWidget {
               const BottomNavigationBarItem(
                 icon: Icon(Icons.image_rounded),
                 label: 'Phương tiện',
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.settings_rounded),
-                label: 'Cài đặt',
               ),
             ],
           );

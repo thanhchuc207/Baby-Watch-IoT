@@ -113,3 +113,17 @@ extension DateTimeFormatting on DateTime {
     return dateFormat.format(this.toLocal());
   }
 }
+
+extension DurationFormatting on Duration {
+  String videoDuration() {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    String twoDigitHours = twoDigits(inHours);
+    String twoDigitMinutes = twoDigits(inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(inSeconds.remainder(60));
+    if (twoDigitHours == '00') {
+      return '$twoDigitMinutes:$twoDigitSeconds';
+    } else {
+      return '$twoDigitHours:$twoDigitMinutes:$twoDigitSeconds';
+    }
+  }
+}

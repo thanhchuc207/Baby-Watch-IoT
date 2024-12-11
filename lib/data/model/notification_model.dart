@@ -10,6 +10,7 @@ class NotificationModel with _$NotificationModel implements Notification {
   const factory NotificationModel({
     @Default('') String content,
     DateTime? createAt,
+    @Default('') String videoURL,
   }) = _NotificationModel;
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) =>

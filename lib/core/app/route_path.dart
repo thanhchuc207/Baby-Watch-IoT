@@ -40,4 +40,10 @@ class Routers {
 
   /// static variables.
   static const settings = '/settingsScreen';
+
+  /// static variables.
+  static const videoDetail = '/videoDetailScreen';
+
+  ///[landscapeModeVideosScreen] is the landscape mode video screen of the app.
+  static const landscapeModeVideosScreen = '/landscapeModeVideosScreen';
 }

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/constants/constants.dart';
+import '../../../core/app/app_router.dart';
+import '../../auth/sign_in/cubit/auth_cubit.dart';
 import '../cubit/calendar_cubit.dart';
 import 'home_body.dart';
 
@@ -29,6 +31,21 @@ class HomePage extends StatelessWidget {
                 fontSize: 24,
               ),
             ),
+            actions: [
+              IconButton(
+                icon: Icon(
+                  Icons.logout,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+                onPressed: () {
+                  context
+                      .read<AuthCubit>()
+                      .signOut(); // Gọi phương thức signOut
+
+                  context.router.replaceAll([const SignInRoute()]);
+                },
+              ),
+            ],
           ),
           body: HomeBody()),
     );

@@ -39,6 +39,10 @@ class $AssetsImagesGen {
   AssetGenImage get defaultThumbnailCourse =>
       const AssetGenImage('assets/images/default_thumbnail_course.png');
 
+  /// File path: assets/images/defaut_avt_video.jpg
+  AssetGenImage get defautAvtVideo =>
+      const AssetGenImage('assets/images/defaut_avt_video.jpg');
+
   /// File path: assets/images/google.png
   AssetGenImage get google => const AssetGenImage('assets/images/google.png');
 
@@ -70,6 +74,7 @@ class $AssetsImagesGen {
         hairGlamour,
         defaultAvatar,
         defaultThumbnailCourse,
+        defautAvtVideo,
         google,
         imageSplash,
         logo,

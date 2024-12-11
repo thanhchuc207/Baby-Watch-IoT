@@ -1,18 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../generated/assets.gen.dart';
 
 class ImageWidget extends StatelessWidget {
   final String? imageUrl;
-  final String defaultAssetImage = Assets.images.defaultThumbnailCourse.path;
-  final double imageHeight;
-  final double imageWidth;
+  final String defaultAssetImage = Assets.images.defautAvtVideo.path;
 
   ImageWidget({
     super.key,
     this.imageUrl,
-    this.imageHeight = 250.0,
-    this.imageWidth = double.infinity,
   });
 
   @override
@@ -23,46 +19,33 @@ class ImageWidget extends StatelessWidget {
 
     return GestureDetector(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0), // Điều chỉnh giá trị bo tròn
-        child: isValidUrl
-            ? Image.network(
-                imageUrl!,
-                fit: BoxFit.cover,
-                height: imageHeight,
-                width: imageWidth,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) {
-                    return child; // Hiển thị ảnh khi đã tải xong
-                  }
-                  return Container(
-                    height: imageHeight,
-                    width: imageWidth,
+        borderRadius: BorderRadius.circular(16.0), // Điều chỉnh giá trị bo tròn
+
+        child: AspectRatio(
+          aspectRatio: 16 / 9, // Tỷ lệ 16:9 cho hình ảnh
+
+          child: isValidUrl
+              ? CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: imageUrl!,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Container(
                     color: Colors.grey.shade300, // Placeholder màu xám
                     child: Center(
                       child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                (loadingProgress.expectedTotalBytes ?? 1)
-                            : null, // Hiển thị tiến trình tải
-                      ),
+                          value: downloadProgress.progress),
                     ),
-                  );
-                },
-                errorBuilder: (context, error, stackTrace) {
-                  return Image.asset(
+                  ),
+                  errorWidget: (context, url, error) => Image.asset(
                     defaultAssetImage,
                     fit: BoxFit.cover,
-                    height: imageHeight,
-                    width: imageWidth,
-                  );
-                },
-              )
-            : Image.asset(
-                defaultAssetImage,
-                fit: BoxFit.cover,
-                height: imageHeight,
-                width: imageWidth,
-              ),
+                  ),
+                )
+              : Image.asset(
+                  defaultAssetImage,
+                  fit: BoxFit.cover,
+                ),
+        ),
       ),
     );
   }
